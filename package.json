@@ -1,0 +1,77 @@
+{
+  "name": "p-components-utils",
+  "version": "0.0.1",
+  "author": "panmiaoqian",
+  "license": "MIT",
+  "type": "module",
+  "main": "lib/index.js",
+  "module": "es/index.js",
+  "files": [
+    "lib",
+    "es",
+    "README",
+    "LICENSE"
+  ],
+  "scripts": {
+    "dev": "vite --host",
+    "build": "tsc && vite build",
+    "lint": "eslint . --ext '.js,.ts' --fix",
+    "precommit": "lint-staged",
+    "clean:cache": "rm -rf node_modules && rm -rf .eslintcache && rm -rf package-lock.json && npm install",
+    "test": "vitest",
+    "test--watch": "vitest run watch",
+    "coverage": "vitest run --coverage",
+    "version": "bumpp"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "src/**/*.{js,ts}": [
+      "eslint --fix",
+      "git add"
+    ]
+  },
+  "browserslist": [
+    "> 1%",
+    "not ie 11",
+    "not op_mini all"
+  ],
+  "dependencies": {
+    "dayjs": "^1.11.7",
+    "lodash": "^4.17.21",
+    "lodash-es": "^4.17.21",
+    "lodash-unified": "^1.0.3"
+  },
+  "devDependencies": {
+    "@types/lodash": "^4.14.192",
+    "@types/lodash-es": "^4.17.7",
+    "@types/node": "^20.3.0",
+    "@types/qs": "^6.9.7",
+    "@typescript-eslint/eslint-plugin": "^5.57.1",
+    "@typescript-eslint/parser": "^5.57.1",
+    "@vitejs/plugin-vue": "^4.1.0",
+    "@vitest/coverage-v8": "^0.34.1",
+    "axios": "^1.4.0",
+    "bumpp": "^9.1.0",
+    "eslint": "^8.37.0",
+    "eslint-plugin-prettier": "^4.2.1",
+    "husky": "^8.0.3",
+    "lint-staged": "^13.2.0",
+    "prettier": "^2.8.7",
+    "qs": "^6.11.2",
+    "typescript": "^4.9.3",
+    "vite": "^4.2.0",
+    "vitest": "^0.34.1"
+  },
+  "keywords": [
+    "component",
+    "utils"
+  ],
+  "publishConfig": {
+    "registry": "https://registry.npmjs.org/",
+    "access": "public"
+  }
+}
