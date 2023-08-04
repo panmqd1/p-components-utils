@@ -10,9 +10,12 @@
     "resolveJsonModule": true,
     "isolatedModules": true,
     "esModuleInterop": true,
+    "declaration": true,
+    "declarationDir": "dist",
+    "emitDeclarationOnly": true, // 只输出声明文件(ts 产物)
+    // "noEmit": true,
     "lib": ["ESNext", "DOM"],
     "skipLibCheck": true,
-    "noEmit": true,
     "baseUrl": ".",
     "paths": {
       "/@/*": ["src/*"],

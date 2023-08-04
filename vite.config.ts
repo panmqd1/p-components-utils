@@ -1,4 +1,5 @@
 import { defineConfig } from "vite";
+import dts from "vite-plugin-dts";
 
 // https://vitejs.dev/config/
 export default defineConfig({
@@ -12,31 +13,37 @@ export default defineConfig({
     outDir: "dist",
     minify: false,
     rollupOptions: {
-      input: ['src/index.ts'],
+      input: ["src/index.ts"],
       output: [
         {
-          format: 'es',
-          entryFileNames: '[name].js',
+          format: "es",
+          entryFileNames: "[name].js",
           preserveModules: true,
-          dir: 'es',
-          preserveModulesRoot: 'src'
+          dir: "es",
+          preserveModulesRoot: "src",
         },
         {
-          format: 'cjs',
-          entryFileNames: '[name].js',
+          format: "cjs",
+          entryFileNames: "[name].js",
           preserveModules: true,
-          dir: 'lib',
-          preserveModulesRoot: 'src'
-        }
-      ]
+          dir: "lib",
+          preserveModulesRoot: "src",
+        },
+      ],
     },
     lib: {
       entry: "./index.ts",
-      formats: ['es', 'cjs'],
+      formats: ["es", "cjs"],
       name: "p-components-utils",
     },
   },
   optimizeDeps: {
     include: ["lodash-es"],
   },
+  plugins: [
+    dts({
+      outputDir: ["es", "lib", "dist/@types"],
+      tsConfigFilePath: "./tsconfig.json",
+    }),
+  ],
 });
