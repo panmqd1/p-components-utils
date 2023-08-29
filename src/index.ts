@@ -7,3 +7,9 @@ export * from "/@/utils/date";
 export * from "/@/utils/number";
 
 export * from "/@/utils/object";
+
+export * from "/@/utils/is";
+
+export * from "/@/utils/reg";
+
+export * from "/@/utils/validate";
